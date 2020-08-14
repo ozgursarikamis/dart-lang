@@ -1,17 +1,30 @@
 void main() {
-  MockSpaceship().sayMyName();
+  Describe('Özgür', 36).describe();
+  Describe('Halime', 38).describeWithEmphasis();
 }
 
-// Base class, will be used as Interface.
-class SpaceCraft {
-  void sayMyName() {
-    print('Heisenberg');
+abstract class Describable {
+  void describe();
+  void describeWithEmphasis() {
+    print('===================');
+    describe();
+    print('===================');
   }
 }
 
-class MockSpaceship implements SpaceCraft {
+class Describe implements Describable {
+  String name;
+  int age;
+
+  Describe(this.name, this.age);
+
   @override
-  void sayMyName() {
-    print('Skyler');
+  void describe() {
+    print(this.name);
+  }
+
+  @override
+  void describeWithEmphasis() {
+    print(this.age);
   }
 }
