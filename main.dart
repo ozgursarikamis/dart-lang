@@ -1,28 +1,13 @@
 void main() {
-  SuperUser superUser = SuperUser('Yoshi', 20);
-  superUser.publish();
+  /**
+   * The difference with a List is that with the Iterable, 
+   * you can’t guarantee that reading elements by index will 
+   * be efficient. Iterable, as opposed to List, 
+   * doesn’t have the [] operator.
+   */
 
-  superUser.login();
-}
-
-class User {
-  String username;
-  int age;
-
-  void login() {
-    print('$username user logged in');
-  }
-
-  User(String _username, int _age) {
-    this.username = _username;
-    this.age = _age;
-  }
-}
-
-class SuperUser extends User {
-  SuperUser(String username, int age) : super(username, age);
-
-  void publish() {
-    print('published update by $username');
-  }
+  Iterable<int> iterable = [1, 2, 3];
+  // int value = iterable[1]; // Invalid
+  int value = iterable.elementAt(1);
+  print(value);
 }
