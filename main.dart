@@ -1,39 +1,17 @@
 void main() {
-  Crocodile().hunt('zebra');
-  Alligator().hunt('fish');
-  Fish().feed();
+  MockSpaceship().sayMyName();
 }
 
-mixin Swim {
-  void swim() => print('Swimming');
-}
-
-mixin Bite {
-  void bite() => print('Chomp');
-}
-
-mixin Crawl {
-  void crawl() => print('Crawling');
-}
-
-abstract class Reptile with Swim, Crawl, Bite {
-  void hunt(food) {
-    print('${this.runtimeType}----');
-    swim();
-    crawl();
-    bite();
-    print('Eat $food');
+// Base class, will be used as Interface.
+class SpaceCraft {
+  void sayMyName() {
+    print('Heisenberg');
   }
 }
 
-class Alligator extends Reptile {}
-
-class Crocodile extends Reptile {}
-
-class Fish with Swim, Bite {
-  void feed() {
-    print('----- fish -----');
-    swim();
-    bite();
+class MockSpaceship implements SpaceCraft {
+  @override
+  void sayMyName() {
+    print('Skyler');
   }
 }
