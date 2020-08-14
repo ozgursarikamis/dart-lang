@@ -3,9 +3,9 @@ bool predicate(String element) {
 }
 
 void main() {
-  var items = ['Salad', 'Popcorn', 'Toast', 'Lasagne'];
-  var lenght7 = items.where((element) => element.length == 7);
-  for (var item in lenght7) {
+  var evenNumbers = [1, -2, 3, 42].where((number) => number.isEven);
+
+  for (var item in evenNumbers) {
     print(item);
   }
 }
