@@ -8,5 +8,6 @@ String createOrderMessage() {
 }
 
 Future<void> fetchUserOrder() {
-  return Future.delayed(Duration(seconds: 2), () => print('Large Latte'));
+  return Future.delayed(
+      Duration(seconds: 2), () => throw new Exception('Fetching order failed'));
 }
