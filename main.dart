@@ -1,7 +1,12 @@
 main() {
-  var myMap = <String, int>{'one': 1};
-  for (var item in myMap.keys) {
-    print(item);
-  }
-  print(myMap);
+  print(createOrderMessage());
+}
+
+String createOrderMessage() {
+  fetchUserOrder();
+  return 'Your order is...';
+}
+
+Future<void> fetchUserOrder() {
+  return Future.delayed(Duration(seconds: 2), () => print('Large Latte'));
 }
