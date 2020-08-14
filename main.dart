@@ -3,25 +3,17 @@ bool predicate(String element) {
 }
 
 void main() {
-  var items = ['Salad', 'Popcorn', 'Toast', 'Lasagne'];
+  var extendedUser = ExtendedUser('Özgür', 36);
+  print(extendedUser.age);
+}
 
-  var element1 = items.firstWhere((element) => element.length > 5);
-  print(element1);
+class User {
+  String name;
+  int age;
 
-  var element2 = items.firstWhere(predicate);
-  print(element2);
+  User(this.name, this.age);
+}
 
-  var element3 =
-      items.firstWhere((element) => element.length > 10, orElse: () => 'None');
-  print(element3);
-
-  var element4 = items.singleWhere((element) => element == 'Popcorn');
-  print(element4);
-
-  if (items.any((element) => element == 'Salad')) {
-    print('we have a salad');
-  }
-  if (items.any((element) => element.contains('Salad'))) {
-    print('we have a salad');
-  }
+class ExtendedUser extends User {
+  ExtendedUser(name, age) : super(name, age);
 }
