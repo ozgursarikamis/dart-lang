@@ -1,30 +1,10 @@
 void main() {
-  Describe('Özgür', 36).describe();
-  Describe('Halime', 38).describeWithEmphasis();
-}
-
-abstract class Describable {
-  void describe();
-  void describeWithEmphasis() {
-    print('===================');
-    describe();
-    print('===================');
-  }
-}
-
-class Describe implements Describable {
-  String name;
-  int age;
-
-  Describe(this.name, this.age);
-
-  @override
-  void describe() {
-    print(this.name);
-  }
-
-  @override
-  void describeWithEmphasis() {
-    print(this.age);
+  Iterable numbers = [1, 2, 3, 4, 5];
+  for (var item in numbers) {
+    if (item > 4) {
+      throw ArgumentError('the number is greater than 4');
+    } else {
+      print(item);
+    }
   }
 }
