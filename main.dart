@@ -3,9 +3,10 @@ bool predicate(String element) {
 }
 
 void main() {
-  var evenNumbers = [1, -2, 3, 42].where((number) => number.isEven);
+  var numbers = [1, 3, -2, 0, 4, 5];
+  var numbersUntilZero = numbers.takeWhile((value) => value != 0);
+  print('Numbers until zero $numbersUntilZero');
 
-  for (var item in evenNumbers) {
-    print(item);
-  }
+  var numbersAfterZero = numbers.skipWhile((value) => value != 0);
+  print('Numbers until zero $numbersAfterZero');
 }
