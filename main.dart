@@ -1,15 +1,13 @@
-void main() {
-  Iterable numbers = [1, 2, 3, 4, 5];
-  for (var item in numbers) {
-    try {
-      if (item > 4) {
-        throw Exception('the number is greater than 4');
-      } else {
-        print(item);
-      }
-    } catch (e) {
-      print(e.message);
-      print(e.errorName);
-    }
+import 'dart:io';
+
+Future<void> main() async {
+  try {
+    var description = await File('path').readAsString();
+    print(description);
+  } on IOException catch (e) {
+    print('file not found');
+    print(e);
+  } finally {
+    // clear some disposable.
   }
 }
