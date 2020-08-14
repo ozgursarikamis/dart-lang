@@ -1,24 +1,28 @@
 void main() {
-  bool isNight = false;
-  print(isNight);
+  SuperUser superUser = SuperUser('Yoshi', 20);
+  superUser.publish();
 
-  print(greeting());
-  print(arrowFunc());
+  superUser.login();
+}
 
-  print('\n');
+class User {
+  String username;
+  int age;
 
-  List names = ['Özgür', 'Halime', 'Zana'];
-  names.add('added value');
-  names.remove('Özgür');
-  names.removeAt(2);
+  void login() {
+    print('$username user logged in');
+  }
 
-  for (var name in names) {
-    print(name);
+  User(String _username, int _age) {
+    this.username = _username;
+    this.age = _age;
   }
 }
 
-String greeting() {
-  return 'Hello';
-}
+class SuperUser extends User {
+  SuperUser(String username, int age) : super(username, age);
 
-String arrowFunc() => 'Hello';
+  void publish() {
+    print('published update by $username');
+  }
+}
