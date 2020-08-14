@@ -3,17 +3,9 @@ bool predicate(String element) {
 }
 
 void main() {
-  var extendedUser = ExtendedUser('Özgür', 36);
-  print(extendedUser.age);
-}
-
-class User {
-  String name;
-  int age;
-
-  User(this.name, this.age);
-}
-
-class ExtendedUser extends User {
-  ExtendedUser(name, age) : super(name, age);
+  var items = ['Salad', 'Popcorn', 'Toast', 'Lasagne'];
+  var lenght7 = items.where((element) => element.length == 7);
+  for (var item in lenght7) {
+    print(item);
+  }
 }
