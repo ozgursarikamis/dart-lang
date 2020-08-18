@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-const String url = "https://jsonplaceholder.typicode.com/albums/1";
+const String url = "https://jsonplaceholder.typicode.com/albums";
 
 Future main(List<String> args) async {
   // var response = await http.get(url);
@@ -11,12 +11,25 @@ Future main(List<String> args) async {
   //   print(response.contentLength);
   // }
   // print(response.statusCode);
-  var albums = await fetchAlbum();
-  print(albums.id);
-  print(albums.title);
-  print(albums.userId);
+  // var albums = await fetchAlbum();
+  // print(albums.id);
+  // print(albums.title);
+  // print(albums.userId);
+
+  var albums = await fetchAlbums();
+  for (var album in albums) {
+    print(album.title);
+  }
 }
 
+Future<List<Album>> fetchAlbums() async {
+  http.Response response = await http.get(url);
+  List responseJson = json.decode(response.body);
+
+  // Album.fromJson(json.decode(response.body));
+
+  return responseJson.map((e) => Album.fromJson(e)).toList();
+}
 // Future<http.Response> fetchAlbum() {
 //   return http.get(url);
 // }
